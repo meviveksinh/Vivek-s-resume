@@ -1,1 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Sinh - Educator Resume</title>
+    <meta name="description" content="Vivek Sinh - Experienced Science and Mathematics Educator with strong academic background and a passion for teaching.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --charcoal: #3E3E3E;
+            --crimson: #D64045;
+            --mustard: #E9B44C;
+            --cream: #F8F1E5;
+            --white: #FFFFFF;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: var(--charcoal);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 1rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--mustard);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: var(--charcoal);
+        }
+
+        .mobile-menu a {
+            padding: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--mustard);
+            color: var(--charcoal);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--mustard);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            color: var(--crimson);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--crimson);
+        }
+
+        .btn-download {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: var(--mustard);
+            padding: 0.5rem 1rem;
+            color: var(--charcoal);
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-download:hover {
+            background-color: var(--crimson);
+            color: var(--white);
+        }
+
+        /* Content */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--crimson);
+            border-bottom: 2px solid var(--mustard);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--mustard);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill {
+            background-color: var(--mustard);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .skill:hover {
+            background-color: var(--crimson);
+            color: var(--white);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--charcoal);
+            color: var(--white);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--crimson);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: none;
+                width: 100%;
+            }
+
+            .mobile-menu.show {
+                display: flex;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-logo">Vivek Sinh</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+    </div>
+
+    <!-- Header -->
+    <header id="about">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFAuz_OaPFKRg/profile-displayphoto-shrink_400_400/B4DZSZj_4CGkAg-/0/1737743139756?e=1750291200&v=beta&t=myWdTzErW9SOOqXk9BSTKHimyVzyz3VLjfXlI7ofxgA" alt="Vivek Singh's Profile Picture" class="profile-img">
+        <h1>VIVEK SINH</h1>
+        <p class="title">Educator | Science & Mathematics Specialist</p>
+        <p>Dedicated and qualified postgraduate with strong academic credentials and a passion for teaching. Adept at simplifying complex concepts and creating engaging learning environments.</p>
+        <div class="contact-info">
+            <a href="tel:+9198765xxxxx"><i class="fas fa-phone"></i> +91 98765xxxxx</a>
+            <a href="mailto:vivek.singh@example.com"><i class="fas fa-envelope"></i> vivek.sinh@example.com</a>
+            <a href="https://www.linkedin.com/in/vivek-singh-147649220?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" >🔗LinkedIn</a>
+        </div>
+        <a href="#" class="btn-download">Download Resume</a>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Education -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Bachelor of Education (B.Ed)</h3>
+                    <p><strong>2024</strong><br>Dr. Rammanohar Lohia Avadh University<br>1st Division</p>
+                </div>
+                <div class="card">
+                    <h3>Master of Science (M.Sc)</h3>
+                    <p><strong>2022</strong><br>Dr. Rammanohar Lohia Avadh University<br>68% (1st Division)</p>
+                </div>
+                <div class="card">
+                    <h3>Bachelor of Science (B.Sc)</h3>
+                    <p><strong>2020</strong><br>Dr. Rammanohar Lohia Avadh University<br>63% (1st Division)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>CTET</h3>
+                    <p><strong>2024</strong><br>Qualified with distinction</p>
+                </div>
+                <div class="card">
+                    <h3>TGT (Science & Math)</h3>
+                    <p><strong>2024</strong><br>Qualified</p>
+                </div>
+                <div class="card">
+                    <h3>PGT (Higher Secondary)</h3>
+                    <p><strong>2024</strong><br>Qualified</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <h2>Teaching Experience</h2>
+            <div class="card">
+                <h3>Private Tuition Instructor</h3>
+                <p><strong>2023 – 2024</strong></p>
+                <ul>
+                    <li>Guided a 12th-grade student to score 94% in board exams</li>
+                    <li>Customized lessons for individual learning styles</li>
+                    <li>Strong communication and mentoring skills</li>
+                </ul>
+            </div>
+            <div class="card" style="margin-top: 1.5rem;">
+                <h3>City Montessori School (CMS), Mahanagar</h3>
+                <p><strong>Observation Training</strong></p>
+                <ul>
+                    <li>Observed classroom management techniques</li>
+                    <li>Assisted in creating lesson plans with mentor support</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <span class="skill">Science (PGT Level)</span>
+                <span class="skill">Mathematics (TGT Level)</span>
+                <span class="skill">Conceptual Teaching</span>
+                <span class="skill">NCERT Curriculum</span>
+                <span class="skill">Student Assessment</span>
+                <span class="skill">Communication</span>
+                <span class="skill">Classroom Management</span>
+                <span class="skill">Digital Teaching Tools</span>
+                <span class="skill">Lesson Planning</span>
+                <span class="skill">Adaptive Teaching</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Vivek Sinh. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopButton.classList.toggle('visible', window.scrollY > 300);
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Hamburger Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+                mobileMenu.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
